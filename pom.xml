@@ -14,23 +14,35 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
+    <!--star公共jar包-->
     <module>star-common</module>
+    <!--star公共配置-->
     <module>star-config</module>
+    <!--star-API-->
     <module>star-api</module>
+    <!--star核心类库-->
     <module>star-core</module>
-
+    <!--star权限系统RBAC-->
     <module>star-rbac</module>
+    <!--star认证系统-->
     <module>star-auth</module>
+    <!--star安全系统-->
     <module>star-security</module>
-
+    <!--star web文件服务器-->
     <module>star-file</module>
+    <!--star 消息中间件-->
     <module>star-jms</module>
+    <!--star 大数据系统-->
     <module>star-bigdata</module>
-
+    <!--star 微信API-->
     <module>star-wechat</module>
+    <!--star CMS-->
     <module>star-cms</module>
+    <!--star 电商项目-->
     <module>star-shop</module>
+    <!--star 酒店预定旅游系统-->
     <module>star-trip</module>
+    <!--star 支付系统-->
     <module>star-pay</module>
 
 
