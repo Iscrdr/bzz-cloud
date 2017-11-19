@@ -11,6 +11,7 @@
 
     <groupId>com.star.cloud</groupId>
     <artifactId>star-common</artifactId>
+    <packaging>jar</packaging>
 
 
 
@@ -55,4 +56,5 @@
                 <version>${validator.version}</version>
             </dependency>
         </dependencies>
+
 </project>
