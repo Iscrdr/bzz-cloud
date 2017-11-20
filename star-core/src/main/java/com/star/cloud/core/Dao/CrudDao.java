@@ -3,16 +3,16 @@ package com.star.cloud.core.Dao;
 
 import java.util.List;
 
+
 /**
- * @CLASS_NAME: $CLASS_NAME$
- * @PACKAGE_NAME: com.star.cloud.core.Dao$
+ * @PACKAGE_NAME: com.star.cloud.core.Dao
+ * @CLASS_NAME: CrudDao
  * @Description:
- * @Author : yang qian li
- * @Date: 2017-11-19 21:17
+ * @Author : yang qianli
+ * @Date: 2017-11-21 0:08
  * @Modified by:
  * @Date:
  */
-
 public interface CrudDao<T> extends BaseDao {
 
 

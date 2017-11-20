@@ -11,4 +11,14 @@
 
     <artifactId>star-rbac</artifactId>
 
+
+
+    <dependencies>
+        <dependency>
+            <artifactId>star-core</artifactId>
+            <groupId>com.star.cloud</groupId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 </project>
