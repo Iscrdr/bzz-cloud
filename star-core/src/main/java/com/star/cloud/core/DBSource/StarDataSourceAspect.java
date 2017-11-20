@@ -5,6 +5,9 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
@@ -19,6 +22,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Aspect
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class StarDataSourceAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Pointcut("execution(* com.star.cloud.core.service..*.*(..))")
+    public void aspect() {
+    }
+
     /* @author: yang qianli
      * @date: 2017-11-21 1:30
      * @param:  * @param null
@@ -31,7 +41,7 @@ public class StarDataSourceAspect {
         // Gets the current method of execution
         String methodName = point.getSignature().getName();
 
-
+        logger.info("Before the data source switch,datasource:"+StarDynamicDataSourceHolder.getDataSourceKey());
         if (isReaderData(methodName)) {
             // set reader datasource mark
             StarDynamicDataSourceHolder.readerMark();
@@ -39,6 +49,7 @@ public class StarDataSourceAspect {
             // set writer datasource mark
             StarDynamicDataSourceHolder.writerMark();
         }
+        logger.info("After the data source switch,methodName:"+methodName+"datasource:"+StarDynamicDataSourceHolder.getDataSourceKey());
     }
 
 
