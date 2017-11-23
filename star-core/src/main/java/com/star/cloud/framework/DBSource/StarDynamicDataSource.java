@@ -1,4 +1,4 @@
-package com.star.cloud.core.DBSource;
+package com.star.cloud.framework.DBSource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

@@ -1,4 +1,4 @@
-package com.star.cloud.core.DBSource;
+package com.star.cloud.framework.DBSource;
 
 /**
  * @PACKAGE_NAME: com.star.cloud.core.DBSource
@@ -11,10 +11,7 @@ package com.star.cloud.core.DBSource;
  */
 public class StarDynamicDataSourceHolder {
 
-    //The data source writes the corresponding KEY
-    private  static  final String WRITER = "writer";
-    //The data source reads the corresponding KEY
-    private  static  final String READER = "reader";
+
     //Use ThreadLocal to record the data source key of the current thread
     private  static  final ThreadLocal<String> holder = new ThreadLocal<String>();
 
@@ -38,25 +35,6 @@ public class StarDynamicDataSourceHolder {
         return  holder.get();
     }
 
-    /* @author: yang qianli
-     * @date: 2017-11-21 1:22
-     * @param:  * @param null
-     * @return: void
-     * @description: set WRITER mark when accessing the data source
-     */
-    public  static  void writerMark(){
-        putDataSourceKey(WRITER);
-    }
-
-    /* @author: yang qianli
-     * @date: 2017-11-21 1:25
-     * @param:  * @param null
-     * @return:   void
-     * @description: set READER mark when accessing the data source
-     */
-    public  static  void readerMark(){
-        putDataSourceKey(READER);
-    }
 
     /* @author: yang qianli
      * @date: 2017-11-21 1:44
