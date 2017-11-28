@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.star.cloud.rbac.dao">
+
+
+
+    <!-- insert sys_user -->
+    <insert id="insert">
+        INSERT INTO sys_user(
+        id,
+        login_name,
+        password,
+        name,
+        email,
+        mobile,
+         create_by,
+          create_date,
+           update_by,
+           update_date
+        ) VALUES (
+        #{id},
+        #{loginName},
+        #{password},
+        #{name},
+        #{email},
+        #{mobile},
+
+        #{createUser.name},
+        #{createDate},
+        #{updateUser.name},
+        #{updateDate}
+
+        )
+    </insert>
+
+    <!-- update sys_user -->
+    <update id="update">
+        UPDATE sys_user SET
+        login_name = #{loginName},
+        no = #{no},
+        name = #{name},
+        email = #{email},
+        mobile = #{mobile},
+       create_by =  #{createUser.name},
+        create_date = #{createDate},
+       update_by =  #{updateUser.name},
+       update_date =  #{updateDate}
+        WHERE id = #{id}
+    </update>
+
+
+
+</mapper>
