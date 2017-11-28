@@ -1,14 +1,11 @@
-package com.star.cloud.core.Dao;
+
+package com.star.cloud.core.dao;
 
 /**
- * @CLASS_NAME: $CLASS_NAME$
- * @PACKAGE_NAME: com.star.cloud.core.Dao$
- * @Description:
- * @Author : yang qian li
- * @Date: 2017-11-19 21:16
- * @Modified by:
- * @Date:
+ * DAO支持类实现
+ * @author yang-ql
+ * @version 2014-05-16
  */
-
 public interface BaseDao {
+
 }

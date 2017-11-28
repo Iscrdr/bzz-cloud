@@ -1,6 +1,6 @@
 package com.star.cloud.core.service;
 
-import com.star.cloud.core.Dao.TreeLftRgtDao;
+import com.star.cloud.core.dao.TreeLftRgtDao;
 import com.star.cloud.core.entity.po.TreeLftRgtPo;
 import org.springframework.transaction.annotation.Transactional;
 

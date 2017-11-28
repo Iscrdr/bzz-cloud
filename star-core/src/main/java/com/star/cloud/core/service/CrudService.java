@@ -1,6 +1,6 @@
 package com.star.cloud.core.service;
 
-import com.star.cloud.core.Dao.CrudDao;
+import com.star.cloud.core.dao.CrudDao;
 import com.star.cloud.core.entity.po.CommonPo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -76,13 +76,16 @@ public class CrudService <D extends CrudDao< T>, T extends CommonPo<T>> extends 
     @Transactional(readOnly = false)
     public  int save(T po) {
         int result ;
-        if (po.isNew()){
+        /*if (po.isNew()){
             po.preInsert();
             result = dao.insert(po);
         }else{
             po.preUpdate();
             result =dao.update(po);
-        }
+        }*/
+        //po.setId("1111");
+        result = dao.insert(po);
+
         return result;
     }
 

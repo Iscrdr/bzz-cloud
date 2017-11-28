@@ -97,17 +97,24 @@ public abstract class CommonPo <T> extends BasePo<T> {
         }
         this.updateDate = new Date();
         this.createDate = this.updateDate;*/
-        this.createUser = null;
-        this.updateUser = null;
+        if (!this.isNew()){
+            if(StringUtils.isBlank(super.getId())){
+                //setId(IdUtils.uuid());
+                this.setId(IdUtils.uuid());
+            }
+        }
+       // this.createUser = null;
+        //this.updateUser = null;
+        this.delFlag = 0;
 
         this.updateDate = new Date();
-        this.createDate = this.updateDate;
+        this.createDate = new Date();
     }
 
     @Override
     public void preUpdate() {
         this.updateDate = new Date();
-        this.createDate = this.updateDate;
+        this.createDate = new Date();
 
     }
 }
