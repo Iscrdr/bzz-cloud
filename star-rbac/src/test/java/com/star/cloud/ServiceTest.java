@@ -6,10 +6,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 import java.util.Date;
 
@@ -25,10 +30,9 @@ import java.util.Date;
  */
 
 
-@SpringBootTest(classes = AppStarCore.class)
-@ComponentScan(basePackages={"com.star"})
+@SpringBootTest
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@Configuration
 public class ServiceTest {
 
     private static final Logger log = LoggerFactory.getLogger(ServiceTest.class);
@@ -40,7 +44,7 @@ public class ServiceTest {
     public void testGetUser(){
 
         SysUser sysUser = new SysUser();
-        sysUser.setId("2222");
+        sysUser.setId("5555");
         sysUser.setLoginName("admin");
         sysUser.setEmail("624003618@qq.com");
         sysUser.setNickName("系统管理员");

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.star.cloud.rbac.dao">
+<mapper namespace="com.star.cloud.rbac.dao.SysUserDao">
 
 
 
@@ -13,10 +13,11 @@
         name,
         email,
         mobile,
-         create_by,
-          create_date,
-           update_by,
-           update_date
+        create_by,
+        create_date,
+        update_by,
+        update_date,
+        del_flag
         ) VALUES (
         #{id},
         #{loginName},
@@ -24,12 +25,11 @@
         #{name},
         #{email},
         #{mobile},
-
         #{createUser.name},
-        #{createDate},
-        #{updateUser.name},
-        #{updateDate}
-
+         #{createUser.createDate},
+           #{updateUser.name},
+         #{updateUser.updateDate},
+         #{delFlag}
         )
     </insert>
 
@@ -40,14 +40,18 @@
         no = #{no},
         name = #{name},
         email = #{email},
-        mobile = #{mobile},
-       create_by =  #{createUser.name},
-        create_date = #{createDate},
-       update_by =  #{updateUser.name},
-       update_date =  #{updateDate}
+        mobile = #{mobile}
         WHERE id = #{id}
     </update>
 
-
+    <!-- update sys_user -->
+    <select id="findList" resultType="com.star.cloud.rbac.entity.SysUser">
+        SELECT id,
+        login_name,
+        password,
+        name,
+        email,
+        mobile FROM sys_user
+    </select>
 
 </mapper>

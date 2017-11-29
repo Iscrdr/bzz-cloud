@@ -3,6 +3,8 @@ package com.star.cloud.core.web;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * class_name: $
  * package: com.star.cloud.core.web$
@@ -13,8 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
+
+
     @GetMapping(value = "/hello")
     public String getHello(){
         return "hello xiaoxingxing";
     }
+
+
 }

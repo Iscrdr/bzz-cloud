@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.star.cloud.rbac.dao.SysUserDao">
+<mapper namespace="com.star.cloud.rbac.entity">
 
 
 
@@ -34,6 +34,14 @@
         WHERE id = #{id}
     </update>
 
-
+    <!-- update sys_user -->
+    <update id="findList" resultType="com.star.cloud.rbac.entity.SysUser">
+        SELECT id,
+        login_name,
+        password,
+        name,
+        email,
+        mobile FROM sys_user
+    </update>
 
 </mapper>
