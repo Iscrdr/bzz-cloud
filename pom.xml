@@ -18,6 +18,8 @@
     <module>star-common</module>
     <!--star公共配置-->
     <module>star-config</module>
+	<!--star mybatis mapper配置-->
+	<module>star-share-resouces</module>
     <!--star-API-->
     <module>star-api</module>
     <!--star核心类库-->
@@ -44,9 +46,6 @@
     <module>star-trip</module>
     <!--star 支付系统-->
     <module>star-pay</module>
-
-
-
   </modules>
 
 </project>
