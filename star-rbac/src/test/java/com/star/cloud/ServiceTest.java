@@ -6,14 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -57,8 +51,12 @@ public class ServiceTest {
         sysUser.setUpdateUser(sysUser);
         sysUser.setDelFlag(0);
 
-        sysUserService.save(sysUser);
+       // sysUserService.save(sysUser);
 
+        SysUser sysUser1 = sysUserService.get(sysUser);
+        System.out.println("===================================================");
+        System.out.println(sysUser1.getName());
+        System.out.println("===================================================");
     }
 
 

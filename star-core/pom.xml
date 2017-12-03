@@ -31,7 +31,7 @@
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>1.5.8.RELEASE</version>
+                <version>1.5.9.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -99,13 +99,7 @@
                         <goals>
                             <goal>process</goal>
                         </goals>
-                        <configuration>
-                            <srcFiles>
-                                <srcFile>*.properties</srcFile>
-                                <srcFile>*.xml</srcFile>
-                                <srcFile>mappers/**/*.xml</srcFile>
-                            </srcFiles>
-                        </configuration>
+
                     </execution>
                 </executions>
             </plugin>
