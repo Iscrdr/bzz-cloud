@@ -62,8 +62,8 @@ public abstract class BasePo <T> implements Serializable {
      *
      * @param isNew
      */
-    public void setNew(boolean isNew) {
-        isNew = isNew;
+    public void setNew(boolean newIs) {
+        isNew = newIs;
     }
 
 

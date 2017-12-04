@@ -11,36 +11,35 @@ import java.util.List;
  */
 public interface CrudDao<T> extends BaseDao {
 
-	/**
-	 * 获取单条数据
+	/*
+	 * get a record by entity's id
 	 * @param id
 	 * @return
 	 */
 	public T get(String id);
 	
-	/**
-	 * 获取单条数据
+	/*
+	 * get a record by entity
 	 * @param entity
 	 * @return
 	 */
 	public T get(T entity);
 	
-	/**
-	 * 查询数据列表，如果需要分页，请设置分页对象，如：entity.setPage(new Page<T>());
+	/* get list or pageList by entity
 	 * @param entity
 	 * @return
 	 */
 	public List<T> findList(T entity);
 	
 	/**
-	 * 查询所有数据列表
+	 * get all record by entity
 	 * @param entity
 	 * @return
 	 */
 	public List<T> findAllList(T entity);
 	
 	/**
-	 * 查询所有数据列表
+	 * get all record
 	 * @see public List<T> findAllList(T entity)
 	 * @return
 	 */
@@ -48,21 +47,21 @@ public interface CrudDao<T> extends BaseDao {
 	public List<T> findAllList();
 	
 	/**
-	 * 插入数据
+	 * insert into table
 	 * @param entity
 	 * @return
 	 */
 	public int insert(T entity);
 	
 	/**
-	 * 更新数据
+	 * update
 	 * @param entity
 	 * @return
 	 */
 	public int update(T entity);
 	
 	/**
-	 * 删除数据（一般为逻辑删除，更新del_flag字段为1）
+	 * delete a record : set del_flag = 0
 	 * @param id
 	 * @see public int delete(T entity)
 	 * @return
@@ -70,11 +69,25 @@ public interface CrudDao<T> extends BaseDao {
 	@Deprecated
 	public int delete(String id);
 	
-	/**
-	 * 删除数据（一般为逻辑删除，更新del_flag字段为1）
+	/*
+	 * delete records : set del_flag = 0
 	 * @param entity
 	 * @return
 	 */
 	public int delete(T entity);
+
+	/*
+	 * batch insert
+	 * @param entity
+	 * @return
+	 */
+	public int batchSave(List<T> list);
+
+	/*
+	 * batch update
+	 * @param entity
+	 * @return
+	 */
+	public int batchUpdate(List<T> list);
 	
 }

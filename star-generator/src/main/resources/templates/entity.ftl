@@ -5,7 +5,7 @@ import lombok.*;
 
 
 /**
- * @CLASS_NAME: ${table_name}
+ * @CLASS_NAME: ${table_first_upper_name}
  * @PACKAGE_NAME: ${package_name}.entity
  * @Author : ${author}
  * @Date: ${date}
@@ -18,7 +18,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ${table_name} extends CommonPo<${table_name}> {
+public class ${table_first_upper_name} extends CommonPo<${table_first_upper_name}> {
 
 <#if entity_column?exists>
     <#list entity_column as entity>
@@ -45,7 +45,5 @@ public class ${table_name} extends CommonPo<${table_name}> {
 
     </#list>
 </#if>
-
-
 
 }

@@ -15,15 +15,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @CLASS_NAME: CodeGenerateUtils$
- * @PACKAGE_NAME: com.star.cloud.gen.utils$
- * @Author : yang qian li
- * @Date: 2017-12-02 20:07
+ * @PACKAGE_NAME: com.star.cloud.gen.utils
+ * @CLASS_NAME: CodeGenerateUtils
+ * @Author : yang qianli 
+ * @Date: 2017-12-04 23:23
  * @Modified by:
  * @Date:
  * @Description:
  */
-
 public class CodeGenerateUtils {
 
         private final String AUTHOR = "Ay";
@@ -65,15 +64,15 @@ public class CodeGenerateUtils {
                 //生成Mapper文件
                 //generateMapperFile(resultSet);
                 //生成Dao文件
-                //generateDaoFile(resultSet);
+                generateDaoFile(resultSet);
                 //生成Repository文件
                // generateRepositoryFile(resultSet);
                 //生成服务层接口文件
                 //generateServiceInterfaceFile(resultSet);
                 //生成服务实现层文件
-                //generateServiceImplFile(resultSet);
+                generateServiceImplFile(resultSet);
                 //生成Controller层文件
-                //generateControllerFile(resultSet);
+                generateControllerFile(resultSet);
                 //生成DTO文件
                 //generateDTOFile(resultSet);
 
@@ -111,10 +110,6 @@ public class CodeGenerateUtils {
                 //字段在数据库的注释
                 columnGen.setColumnComment(resultSet.getString("REMARKS"));
 
-                System.out.println(resultSet.getString("COLUMN_NAME"));
-                System.out.println(resultSet.getString("TYPE_NAME"));
-                System.out.println(replaceUnderLineAndUpperCase(resultSet.getString("COLUMN_NAME")));
-                System.out.println(resultSet.getString("REMARKS"));
 
                 columnClassList.add(columnGen);
             }
@@ -193,8 +188,9 @@ public class CodeGenerateUtils {
         private void generateFileByTemplate(final String templateName,File file,Map<String,Object> dataMap) throws Exception{
             Template template = FreeMarkerTemplateUtils.getTemplate(templateName);
             FileOutputStream fos = new FileOutputStream(file);
-            //dataMap.put("table_name_small",tableName);
-            dataMap.put("table_name",changeTableName);
+            dataMap.put("table_first_lower_name",replaceUnderLineAndLowerCase(tableName));//first char lowerCase
+            dataMap.put("table_first_upper_name",changeTableName);//first char upperCase
+            dataMap.put("table_lower_case_name",replaceLowerCase(tableName));//all char lowerCase
             dataMap.put("author",AUTHOR);
             dataMap.put("date",CURRENT_DATE);
             dataMap.put("package_name",packageName);
@@ -204,21 +200,47 @@ public class CodeGenerateUtils {
         }
 
         public String replaceUnderLineAndUpperCase(String str){
-            StringBuffer sb = new StringBuffer();
-            sb.append(str);
-            int count = sb.indexOf("_");
-            while(count!=0){
-                int num = sb.indexOf("_",count);
-                count = num + 1;
-                if(num != -1){
-                    char ss = sb.charAt(count);
-                    char ia = (char) (ss - 32);
-                    sb.replace(count , count + 1,ia + "");
-                }
-            }
-            String result = sb.toString().replaceAll("_","");
-            return StringUtils.capitalize(result);
+            return StringUtils.capitalize(getStr(str));
         }
 
+        public String replaceUnderLineAndLowerCase(String str){
+            return  getStr(str);
+        }
+     /* @author: yang qianli
+      * @date: 2017-12-04 23:21
+      * @param:  * @param null
+      * @return:
+      * @description: Capitalize the underlined letters and remove the underline
+      */
+     public String getStr(String str){
+         StringBuffer sb = new StringBuffer();
+         sb.append(str);
+         int count = sb.indexOf("_");
+         while(count!=0){
+             int num = sb.indexOf("_",count);
+             count = num + 1;
+             if(num != -1){
+                 char ss = sb.charAt(count);
+                 char ia = (char) (ss - 32);
+                 sb.replace(count , count + 1,ia + "");
+             }
+         }
+         String result = sb.toString().replaceAll("_","");
+         return result ;
+     }
+     
+    /* @author: yang qianli
+     * @date: 2017-12-04 23:17
+     * @param:  String str
+     * @return: str
+     * @description:  remove "_"
+     */
+    public String replaceLowerCase(String str){
+        String result = null;
+        if(StringUtils.isNotBlank(str)){
+            result = str.toString().replaceAll("_","");
+        }
+        return result;
+    }
 
 }

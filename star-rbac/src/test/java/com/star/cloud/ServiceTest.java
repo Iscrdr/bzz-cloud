@@ -38,7 +38,7 @@ public class ServiceTest {
     public void testGetUser(){
 
         SysUser sysUser = new SysUser();
-        sysUser.setId("8888");
+        sysUser.setId("7777");
         sysUser.setLoginName("admin");
         sysUser.setEmail("624003618@qq.com");
         sysUser.setNickName("系统管理员");
