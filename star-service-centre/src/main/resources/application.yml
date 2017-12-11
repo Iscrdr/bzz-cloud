@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: star.server-eureka-ha
+    server:
+      port: 8761
+    spring:
+      profiles:
+        active: star.server1.com
+---
+server:
+  port: 8761
+spring:
+  profiles: star.server1.com
+security:
+  basic:
+    enabled: true
+  user:
+    name: star  # 用户名
+    password: star   # 用户密码
+eureka:
+  instance:
+    hostname: star.server1.com
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://star:star@star.server2.com:8762/eureka/,http://star:star@star.server3.com:8763/eureka/
+---
+server:
+  port: 8762
+spring:
+  profiles: star.server2.com
+security:
+  basic:
+    enabled: true
+  user:
+    name: star  # 用户名
+    password: star   # 用户密码
+eureka:
+  instance:
+    hostname: star.server2.com
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://star:star@star.server1.com:8761/eureka/,http://star:star@star.server3.com:8763/eureka/
+---
+server:
+  port: 8763
+spring:
+  profiles: star.server3.com
+security:
+  basic:
+    enabled: true
+  user:
+    name: star  # 用户名
+    password: star   # 用户密码
+eureka:
+  instance:
+    hostname: star.server3.com
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://star:star@star.server1.com:8761/eureka/,http://star:star@star.server2.com:8762/eureka/
