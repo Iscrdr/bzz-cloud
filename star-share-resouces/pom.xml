@@ -11,6 +11,8 @@
     <artifactId>star-share-resouces</artifactId>
     <packaging>jar</packaging>
     <name>star-share-resouces</name>
+
+
     <build>
         <plugins>
             <plugin>

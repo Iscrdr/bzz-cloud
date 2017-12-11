@@ -119,10 +119,9 @@ public class MyBatisDbConfig implements EnvironmentAware {
         try {
             druidDataSource.setFilters(StringUtils.isNotBlank(filters)?filters:"stat, wall");
         } catch (SQLException e) {
-            logger.info("==============================Load DataSource failed ==============================");
+            logger.info("Load DataSource failed");
             e.printStackTrace();
         }
-        logger.info("==============================Load DataSource success ==============================");
         return druidDataSource;
     }
 
@@ -149,19 +148,7 @@ public class MyBatisDbConfig implements EnvironmentAware {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Interceptor[] plugins =  new Interceptor[]{pageInterceptor};
         bean.setPlugins(plugins);
-        logger.info("============================== SqlSessionFactoryBean Create  success ==============================");
 
-        logger.info("============================== SqlSessionFactoryBean Create  success ==============================");
-        logger.info("============================== SqlSessionFactoryBean Create  success =============================="); logger.info("============================== SqlSessionFactoryBean Create  success =============================="); logger.info("============================== SqlSessionFactoryBean Create  success =============================="); logger.info("============================== SqlSessionFactoryBean Create  success =============================="); logger.info("============================== SqlSessionFactoryBean Create  success ==============================");
-
-
-
-
-
-
-       System.out.println(xmlLocation);
-
-        System.out.println(typeAliasesPackage);
         try {
             bean.setMapperLocations(resolver.getResources(xmlLocation));
             return bean.getObject();
@@ -173,7 +160,6 @@ public class MyBatisDbConfig implements EnvironmentAware {
 
     @Bean
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-        logger.info("============================== SqlSessionTemplate Create  success ==============================");
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 

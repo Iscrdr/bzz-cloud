@@ -2,6 +2,7 @@ package com.star.cloud.core.service;
 
 import com.star.cloud.core.dao.TreeIdPidDao;
 import com.star.cloud.core.entity.po.TreeIdPidPo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -15,4 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional(readOnly = true)
 public abstract class TreeIdPidService<D extends TreeIdPidDao<T>, T extends TreeIdPidPo<T>> extends CrudService<D, T> {
+
+
 }

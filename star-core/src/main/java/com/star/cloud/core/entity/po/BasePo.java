@@ -15,6 +15,7 @@ import java.io.Serializable;
 public abstract class BasePo <T> implements Serializable {
 
 
+    private static final long serialVersionUID = 2829748089686572974L;
     /*
      * PO id Bean (unique)
      */
@@ -28,11 +29,11 @@ public abstract class BasePo <T> implements Serializable {
 
     /*
      * Is this data available?
-     * 0：yes；1：no；2：audit (审核)
+     * 0：yes；1：no；
      */
     public static final Integer DEL_FLAG_TRUE = 0;
     public static final Integer DEL_FLAG_FLASE = 1;
-    public static final Integer DEL_FLAG_AUDIT = 2;
+
 
 
     public BasePo() {

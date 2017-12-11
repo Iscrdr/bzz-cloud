@@ -14,6 +14,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
+
+
+	<!--star服务注册中心-->
+	<module>star-service-centre</module>
+
     <!--star公共jar包-->
     <module>star-common</module>
     <!--star公共配置-->

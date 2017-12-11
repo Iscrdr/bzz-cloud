@@ -17,6 +17,8 @@ import java.util.Date;
 
 public abstract class CommonPo <T> extends BasePo<T> {
 
+    private static final long serialVersionUID = 3861301595667753074L;
+
     protected T createUser;	// 创建人
     protected Date createDate;	// 创建日期
     protected T updateUser;	// 最后更新人

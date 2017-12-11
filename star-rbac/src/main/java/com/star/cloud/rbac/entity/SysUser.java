@@ -27,7 +27,4 @@ public class SysUser extends CommonPo<SysUser>{
         private String name; //real name
 
 
-
-
-
 }
