@@ -5,6 +5,7 @@ import com.star.cloud.rbac.service.SysUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
  * @Date:
  * @Description:
  */
-@Controller
+@RestController
 public class UserController {
 
     @Resource
@@ -29,10 +30,10 @@ public class UserController {
         List<SysUser> list = sysUserService.findList(null);
         return list;
     }
-    @RequestMapping(value = "/index")
+    @GetMapping(value = "/index")
     public String index(){
         System.out.println("这是首页1========================");
-        return "rbac/index";
+        return "这是首页";
     }
     
 }

@@ -24,15 +24,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login") //login can be accessed
-                .failureUrl("/login?error") //login failed can be accessed
-                .permitAll()
-                .and()
-                .logout().permitAll(); //logout can be accessed
+//        http.authorizeRequests()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login") //login can be accessed
+//                .failureUrl("/login?error") //login failed can be accessed
+//                .permitAll()
+//                .and()
+//                .logout().permitAll(); //logout can be accessed
 
     }
 
