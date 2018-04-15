@@ -9,7 +9,7 @@ import java.util.List;
  * @version 2014-05-16
  * @param <T>
  */
-public interface CrudDao<T> extends BaseDao {
+public interface CrudDao<T> extends com.star.cloud.core.dao.BaseDao {
 
 	/*
 	 * get a record by entity's id

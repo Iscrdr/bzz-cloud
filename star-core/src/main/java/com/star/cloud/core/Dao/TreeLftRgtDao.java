@@ -1,5 +1,5 @@
 package com.star.cloud.core.dao;
-
+import com.star.cloud.core.dao.CrudDao;
 import com.star.cloud.core.entity.po.TreeLftRgtPo;
 
 /**
