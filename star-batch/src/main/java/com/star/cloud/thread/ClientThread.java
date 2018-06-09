@@ -1,7 +1,7 @@
 package com.star.cloud.thread;
 
 import com.star.cloud.DBUtils.DBUtil;
-import com.star.cloud.ExcelUtils.ValueUtils;
+import com.star.cloud.excelsax.ValueUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileWriter;
@@ -41,7 +41,7 @@ public class ClientThread implements Runnable {
 			
 			conn = DBUtil.getConnection();
 			conn.setAutoCommit(false);
-			String sql = "INSERT INTO c_cust_sale_1 (ID, gongchang, daqu, chengshi, yewuyuan\n" +
+			String sql = "INSERT  INTO c_cust_sale_2018 (ID, gongchang, daqu, chengshi, yewuyuan\n" +
 					"\t, cust_no, cust_name, dapinleimiaoshu, yijipinleimiaoshu, erjipinleimiaoshu\n" +
 					"\t, sanjipinleimiaoshu, chanpinxianmiaoshu, wuliaobianma, wuliaomiaoshu, xiang\n" +
 					"\t, dun, xiaoshoushouru, jingzhi, shuie, zhanlvjine\n" +
@@ -50,8 +50,8 @@ public class ClientThread implements Runnable {
 					"\t, update_by, update_date, remarks, del_flag)\n" +
 					"VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstm = conn.prepareStatement(sql);
-			String sqlPre = "INSERT INTO c_cust_sale(ID, gongchang, daqu, chengshi, yewuyuan, cust_no, cust_name, dapinleimiaoshu, yijipinleimiaoshu, erjipinleimiaoshu, sanjipinleimiaoshu, chanpinxianmiaoshu, wuliaobianma, wuliaomiaoshu, xiang, dun, xiaoshoushouru, jingzhi, shuie, zhanlvjine, zhekoujine, zhekoubili, shoudafangjiancheng, fapiaoshiqi, dingdanbianhao, danjuriqi, kucundidian, caigoubianhao, create_by, create_date, update_by, update_date, remarks, del_flag) VALUES ";
-			StringBuilder suffix =  new StringBuilder(100000);
+			//String sqlPre = "INSERT INTO c_cust_sale(ID, gongchang, daqu, chengshi, yewuyuan, cust_no, cust_name, dapinleimiaoshu, yijipinleimiaoshu, erjipinleimiaoshu, sanjipinleimiaoshu, chanpinxianmiaoshu, wuliaobianma, wuliaomiaoshu, xiang, dun, xiaoshoushouru, jingzhi, shuie, zhanlvjine, zhekoujine, zhekoubili, shoudafangjiancheng, fapiaoshiqi, dingdanbianhao, danjuriqi, kucundidian, caigoubianhao, create_by, create_date, update_by, update_date, remarks, del_flag) VALUES ";
+			//StringBuilder suffix =  new StringBuilder(100000);
 			long startTime1 = System.currentTimeMillis();//每次提交事务的开始时间
 			long startTime2 = System.currentTimeMillis();//所有事务的开始时间
 			if(null != lists  && lists.size()>0){
@@ -108,6 +108,7 @@ public class ClientThread implements Runnable {
 							pstm.setDouble(20,zhanlvjiajineDouble);
 							
 							String zhekoujine = rowList.get(19);
+							//System.out.println(zhekoujine);
 							Double zhekoujineDouble = ValueUtils.getDouble(zhekoujine);
 							pstm.setDouble(21,zhekoujineDouble);
 							
@@ -121,6 +122,7 @@ public class ClientThread implements Runnable {
 								}
 								
 							}
+							//System.out.println("行数："+i);
 							Double zhekoubaifenbiDouble =ValueUtils.getDouble(zhekoubaifenbi);
 							pstm.setDouble(22,zhekoubaifenbiDouble);
 							
@@ -137,11 +139,16 @@ public class ClientThread implements Runnable {
 							pstm.setDate(26,danjuriqiDate);
 							
 							pstm.setString(27,rowList.get(25));
-							String caigoubianhao = rowList.get(26);
-							if(StringUtils.isNotBlank(rowList.get(26)) && rowList.get(26).length()>100){
-								System.out.println("此列数据过大："+i);
-								caigoubianhao = caigoubianhao.substring(0,100);
+							
+							String  caigoubianhao = "";
+							if(rowList.size()>26){
+								caigoubianhao = rowList.get(26);
+								if(StringUtils.isNotBlank(rowList.get(26)) && rowList.get(26).length()>100){
+									System.out.println("此列数据过大："+i);
+									caigoubianhao = caigoubianhao.substring(0,100);
+								}
 							}
+							
 							
 							pstm.setString(28,caigoubianhao);
 							
@@ -182,9 +189,12 @@ public class ClientThread implements Runnable {
 				//System.out.println("=======>> 从文件"+fileName+".xlsx中导入数据库完毕，共有" + lists.size() + "条导入到了数据库,共耗时："+(endTime2-startTime2));
 				System.out.println("=======>>导入数据库完毕，共有" + lists.size() + "条导入到了数据库,共耗时："+(endTime2-startTime2));
 				
+				pstm.clearBatch();
+				pstm.close();
+				
 				fw.close();
 			}
-		}catch (Exception e){
+		}catch (Exception e  ){
 			e.printStackTrace();
 			
 		}finally {

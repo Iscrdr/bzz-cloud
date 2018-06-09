@@ -7,7 +7,7 @@ import org.springframework.batch.item.UnexpectedInputException;
 
 public class ExcelStep implements ItemReader{
 	
-	public Object read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+	public Object read() {
 		return null;
 	}
 }

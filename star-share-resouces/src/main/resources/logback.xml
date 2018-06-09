@@ -13,6 +13,12 @@
     <property name="log_dir" value="/home/hadmin/data/logs/src" />
     <!-- The maximum log history is 30 days-->
     <property name="maxHistory" value="30" />
+    <!--<logger name="com.atomikos" level="OFF" />-->
+
+    <logger name="org.apache.catalina.core.AprLifecycleListener" level="OFF"/>
+    <logger name="org.springframework.test.context.support" level="OFF"/>
+    <logger name="org.apache.catalina.core.AprLifecycleListener" level="OFF"/>
+    <logger name="org.hibernate" level="OFF" />
 
     <!-- ConsoleAppender  console output log -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -78,6 +84,7 @@
 
     <!-- INFO Logging level appender -->
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
             <onMatch>ACCEPT</onMatch>

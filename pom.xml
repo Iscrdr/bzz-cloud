@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.star.cloud</groupId>
   <artifactId>star</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-
   <name>star</name>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
-
-
 	<!--star服务注册中心-->
 	<module>star-service-centre</module>
-
     <!--star公共jar包-->
     <module>star-common</module>
     <!--star公共配置-->
@@ -42,6 +36,7 @@
     <module>star-jms</module>
     <!--star 大数据系统-->
     <module>star-bigdata</module>
+
     <!--star 微信API-->
     <module>star-wechat</module>
     <!--star CMS-->

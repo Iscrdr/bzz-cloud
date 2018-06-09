@@ -48,7 +48,7 @@ public class CodeGenerateUtils {
             codeGenerateUtils.generate();
         }
 
-        public void generate() throws Exception{
+        public void generate() {
             try {
                 Connection connection = getConnection();
                 DatabaseMetaData databaseMetaData = connection.getMetaData();
