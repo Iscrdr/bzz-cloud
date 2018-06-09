@@ -19,5 +19,7 @@
     </properties>
     <modules>
         <module>star-storm</module>
+        <module>star-scala</module>
+        <module>star-spark</module>
     </modules>
 </project>
