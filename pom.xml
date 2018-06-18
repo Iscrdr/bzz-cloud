@@ -10,8 +10,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
-	<!--star服务注册中心-->
+	<!--star服务注册中心-eureka-->
 	<module>star-service-centre</module>
+    <!--star服务注册中心-zookeeper-->
+    <module>star-service-zookeeper</module>
     <!--star公共jar包-->
     <module>star-common</module>
     <!--star公共配置-->
