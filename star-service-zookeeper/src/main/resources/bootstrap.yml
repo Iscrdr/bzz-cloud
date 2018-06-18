@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    zookeeper:
+      config:
+        root: star-server
+      connect-string: 192.168.132.101:2181,192.168.132.102:2181,192.168.132.103:2181
+      discovery:
+        register: true
+        enabled: true
+management:
+  security:
+    enabled: true
