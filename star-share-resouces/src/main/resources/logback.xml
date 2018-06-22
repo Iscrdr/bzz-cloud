@@ -13,7 +13,8 @@
     <property name="log_dir" value="/home/hadmin/data/logs/src" />
     <!-- The maximum log history is 30 days-->
     <property name="maxHistory" value="30" />
-    <!--<logger name="com.atomikos" level="OFF" />-->
+    <logger name="com.atomikos" level="ERROR" />
+    <logger name="org.mybatis.spring.SqlSessionUtils" level="ERROR" />
 
     <logger name="org.apache.catalina.core.AprLifecycleListener" level="OFF"/>
     <logger name="org.springframework.test.context.support" level="OFF"/>

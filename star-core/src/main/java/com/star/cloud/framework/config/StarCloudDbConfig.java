@@ -1,6 +1,5 @@
 package com.star.cloud.framework.config;
 
-import com.alibaba.druid.pool.xa.DruidXADataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.star.cloud.framework.dynamicdatasource.DynamicDataSource;
@@ -13,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -88,7 +86,6 @@ public class StarCloudDbConfig {
         Properties prop = build(env, "spring.datasource.dataSourceB.druid.");
         ds.setXaProperties(prop);
         //ds.setPoolSize(5);
-       
 //        DruidXADataSource xaDataSource = new DruidXADataSource();
 //        xaDataSource.configFromPropety(prop);
 //        ds.setXaDataSource(xaDataSource);
@@ -104,16 +101,9 @@ public class StarCloudDbConfig {
         targetDataSources.put("dataSourceB", dataSourceB);
         dataSource.setTargetDataSources(targetDataSources);
         dataSource.setDefaultTargetDataSource(dataSourceA);
-        
         return dataSource;
     }
     
-    @Bean(name = "jdbcTemplate")
-    public JdbcTemplate jdbcTemplate(DynamicDataSource dataSource) {
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        jdbcTemplate.setDataSource(dataSource);
-        return jdbcTemplate;
-    }
     /**
      * 注册一个StatViewServlet
      * @return
@@ -150,4 +140,7 @@ public class StarCloudDbConfig {
         filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
     }
+    
+    
+   
 }

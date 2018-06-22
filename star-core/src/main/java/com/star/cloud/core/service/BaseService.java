@@ -1,27 +1,29 @@
+
 package com.star.cloud.core.service;
 
-import com.star.cloud.core.dao.JdbcTemplateDao;
-import com.star.cloud.framework.annotations.DataBaseSourceTarget;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
+import java.util.List;
+
+import com.star.cloud.core.entity.BaseEntity;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Service
-@DataBaseSourceTarget(value = "dataSourceB")
-@Transactional(rollbackFor = {java.lang.Exception.class, java.lang.RuntimeException.class })
-public class BaseService {
+
+/**
+ * Service基类
+ * @author yang-ql
+ * @version 2014-05-16
+ */
+@Transactional(readOnly = true)
+public abstract class BaseService {
 	
-	@Autowired
-	JdbcTemplateDao jdbcTemplateDao;
+	/**
+	 * 日志对象
+	 */
+	protected Logger logger = LoggerFactory.getLogger(getClass());
+
 	
-	@DataBaseSourceTarget(value = "dataSourceA")
-	public int insertA(String sql){
-		return  jdbcTemplateDao.update(sql);
-	}
-	@DataBaseSourceTarget(value = "dataSourceB")
-	public int insertB(String sql){
-		return  jdbcTemplateDao.update(sql);
-	}
+
 }

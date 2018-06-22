@@ -1,10 +1,11 @@
 package com.star.cloud.rbac.entity;
 
-import com.star.cloud.core.entity.DataEntity;
+import com.star.cloud.core.entity.UserBase;
+import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
-
-public class SysUser extends DataEntity<SysUser> {
+@Alias("SysUser")
+public class SysUser extends UserBase{
 	
 	private String loginName;// 登录名
 	private String password;// 密码

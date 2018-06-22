@@ -1,11 +1,11 @@
 package com.star.cloud;
 
+import com.star.cloud.framework.config.StarCloudDbConfig;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @PACKAGE_NAME: com.star.cloud
@@ -18,10 +18,14 @@ import org.springframework.context.annotation.Configuration;
  */
 @SpringBootApplication
 @EnableConfigurationProperties
-@EnableAutoConfiguration
-@ComponentScan(basePackages={"com.star.cloud"})
+@ComponentScans({
+        @ComponentScan("com.star.cloud.core.*"),
+        @ComponentScan("com.star.cloud.framework.*")
+})
+@EnableAspectJAutoProxy
+@Import({StarCloudDbConfig.class})
+@EnableTransactionManagement
 @Configuration
-
 public class AppStarCore {
     public static void main(String[] args) {
         SpringApplication.run(AppStarCore.class, args);

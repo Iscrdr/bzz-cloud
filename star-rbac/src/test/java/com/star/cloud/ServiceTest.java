@@ -37,7 +37,7 @@ public class ServiceTest {
     public void testGetUser(){
 
         SysUser sysUser = new SysUser();
-        sysUser.setId("7777");
+        sysUser.setId("1e8149b33e774daa9a250f5a1a0ad23f");
 //        sysUser.setLoginName("admin");
 //        sysUser.setEmail("624003618@qq.com");
 //        sysUser.setNickName("系统管理员");
@@ -51,10 +51,12 @@ public class ServiceTest {
 //        sysUser.setDelFlag(0);
 
        // sysUserService.save(sysUser);
-
-        SysUser sysUser1 = sysUserService.get(sysUser);
+        Long startTime = System.currentTimeMillis();
+        SysUser sysUser1 = sysUserService.getUser(sysUser);
+        Long endTime = System.currentTimeMillis();
         System.out.println("===================================================");
-        System.out.println(sysUser1.getName());
+        
+        System.out.println(sysUser1.getId()+": "+ (endTime-startTime));
         System.out.println("===================================================");
     }
 

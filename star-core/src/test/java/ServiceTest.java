@@ -20,19 +20,7 @@ public class ServiceTest {
 	
 	@Test
 	public void testGet(){
-//		String sql = " select * from sys_user limit 2 ";
-//		System.out.println("======================");
-//		long startTime = System.currentTimeMillis();
-//		0 baseService.insertA(sql);
-//		long endTime = System.currentTimeMillis();
-////		insert.forEach(map->{
-////			map.forEach((k,v)->{
-////				System.out.print( k + "  : " + v+",");
-////			});
-////			System.out.println( "");
-////		});
-//		System.out.println("======================");
-//		System.out.println(endTime-startTime);
+
 		
 	}
 }

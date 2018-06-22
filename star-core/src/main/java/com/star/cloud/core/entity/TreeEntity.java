@@ -1,6 +1,6 @@
 package com.star.cloud.core.entity;
 
-public class TreeEntity<T> extends DataEntity<T> {
+public abstract class TreeEntity<T> extends DataEntity<T> {
 	
 	private static final long serialVersionUID = -378912226267025855L;
 	

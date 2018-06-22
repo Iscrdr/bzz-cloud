@@ -2,26 +2,35 @@ package com.star.cloud.framework.transactionmanager;
 
 import com.atomikos.icatch.jta.UserTransactionImp;
 import com.atomikos.icatch.jta.UserTransactionManager;
-import com.star.cloud.framework.dynamicdatasource.DynamicDataSource;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
 public class DynamicTransactionManagerConfig {
 	
 	private static final Logger logger = LoggerFactory.getLogger(DynamicTransactionManagerConfig.class);
+	
+	
+	
+
+	
+	
+	
+	
+	
 	
 	
 	@Bean(name = "atomikosUserTransaction")
