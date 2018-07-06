@@ -1,55 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.star.cloud</groupId>
-  <artifactId>star-cloud</artifactId>
+  <groupId>com.bzz.cloud</groupId>
+  <artifactId>bzz-cloud</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>star-cloud</name>
+  <name>bzz-cloud</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
-	<!--star服务注册中心-eureka-->
-	<module>star-service-centre</module>
-    <!--star服务注册中心-zookeeper-->
-    <module>star-service-zookeeper</module>
-    <!--star公共jar包-->
-    <module>star-common</module>
-    <!--star公共配置-->
-    <module>star-config</module>
-	<!--star mybatis mapper配置-->
-	<module>star-share-resouces</module>
-    <!--star-API-->
-    <module>star-api</module>
-    <!--star核心类库-->
-    <module>star-core</module>
-    <!--star权限系统RBAC-->
-    <module>star-rbac</module>
-    <!--star认证系统-->
-    <module>star-auth</module>
-    <!--star安全系统-->
-    <module>star-security</module>
-    <!--star web文件服务器-->
-    <module>star-file</module>
-	<!--star 代码生成器-->
-	<module>star-generator</module>
-    <!--star 消息中间件-->
-    <module>star-jms</module>
-    <!--star 大数据系统-->
-    <module>star-bigdata</module>
+	<!--bzz.务注册中心-eureka-->
+	<module>bzz-service-centre</module>
+    <!--bzz.务注册中心-zookeeper-->
+    <module>bzz-service-zookeeper</module>
+    <!--bzz.共jar包-->
+    <module>bzz-common</module>
+    <!--bzz.共配置-->
+    <module>bzz-config</module>
+	<!--bzz.mybatis mapper配置-->
+	<module>bzz-share-resouces</module>
+    <!--bzz-API-->
+    <module>bzz-api</module>
+    <!--bzz.心类库-->
+    <module>bzz-core</module>
+    <!--bzz.限系统RBAC-->
+    <module>bzz-rbac</module>
+    <!--bzz.证系统-->
+    <module>bzz-auth</module>
+    <!--bzz.全系统-->
+    <module>bzz-security</module>
+    <!--bzz.web文件服务器-->
+    <module>bzz-file</module>
+	<!--bzz.代码生成器-->
+	<module>bzz-generator</module>
+    <!--bzz.消息中间件-->
+    <module>bzz-jms</module>
+    <!--bzz.大数据系统-->
+    <module>bzz-bigdata</module>
 
-    <!--star 微信API-->
-    <module>star-wechat</module>
-    <!--star CMS-->
-    <module>star-cms</module>
-    <!--star 电商项目-->
-    <module>star-shop</module>
-    <!--star 酒店预定旅游系统-->
-    <module>star-trip</module>
-    <!--star 支付系统-->
-    <module>star-pay</module>
-    <module>star-batch</module>
+    <!--bzz.微信API-->
+    <module>bzz-wechat</module>
+    <!--bzz.支付系统-->
+    <module>bzz-pay</module>
+    <module>bzz-batch</module>
   </modules>
   <repositories>
     <repository>
