@@ -1,0 +1,97 @@
+spring:
+  application:
+    name: bzz.server-eureka-ha
+    server:
+      port: 8761
+    spring:
+      profiles:
+        active: bzz.server1.com
+---
+server:
+  port: 8761
+spring:
+  profiles: bzz.server1.com
+security:
+  basic:
+    enabled: true
+  user:
+    name: bzz. # 用户名
+    password: bzz.  # 用户密码
+eureka:
+  instance:
+    hostname: bzz.server1.com
+  client:
+    serviceUrl:
+      defaultZone: http://bzz.bzz.bzz.server2.com:8762/eureka/,http://bzz.bzz.bzz.server3.com:8763/eureka/
+---
+server:
+  port: 8762
+spring:
+  profiles: bzz.server2.com
+security:
+  basic:
+    enabled: true
+  user:
+    name: bzz. # 用户名
+    password: bzz.  # 用户密码
+eureka:
+  instance:
+    hostname: bzz.server2.com
+  client:
+    serviceUrl:
+      defaultZone: http://bzz.bzz.bzz.server1.com:8761/eureka/,http://bzz.bzz.bzz.server3.com:8763/eureka/
+---
+server:
+  port: 8763
+spring:
+  profiles: bzz.server3.com
+security:
+  basic:
+    enabled: true
+  user:
+    name: bzz. # 用户名
+    password: bzz.  # 用户密码
+eureka:
+  instance:
+    hostname: bzz.server3.com
+  client:
+    serviceUrl:
+      defaultZone: http://bzz.bzz.bzz.server1.com:8761/eureka/,http://bzz.bzz.bzz.server2.com:8762/eureka/
+#spring:
+#  application:
+#    name: eureka-server
+#server:
+#  port: 8761
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: bzz. # 用户名
+#    password: bzz.  # 用户密码
+#eureka:
+#  client:
+#    use-dns-for-fetching-service-urls: true
+#    eureka-server-d-n-s-name: www.bzz.com
+#    eureka-server-port: 8761
+#    eureka-server-u-r-l-context: eureka
+#    region: eureka-server-region
+#    availability-zones:
+#      #eureka-server-region: bzz.bzz.www,bzz.bzz.master,bzz.bzz.slave-01,bzz.bzz.slave-02,bzz.bzz.slave-03
+#      eureka-server-region: www,master,slave-01,slave-02,slave-03
+##      user.name: star
+##      user.password: star
+#    register-with-eureka: true
+#    fetch-registry: true
+#    prefer-same-zone-eureka: true
+#
+#  server:
+#    waitTimeInMsWhenSyncEmpty: 0
+#    enableSelfPreservation: true
+#    renewalPercentThreshold: 0.1
+#  instance:
+#    prefer-ip-address: true
+#    metadata-map:
+#      instanceId: ${spring.application.name}:8761
+#      user.name: star
+#      user.password: star
+

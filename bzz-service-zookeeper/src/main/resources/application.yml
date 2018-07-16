@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: bzz-server-zookeeper
+    server:
+      port: 8761
+
+
+
