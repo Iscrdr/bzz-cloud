@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-auth" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-batch" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-bigdata" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-bigdata/bzz-hdfs" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-bigdata/bzz-mapreduce" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-bigdata/bzz-scala" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-bigdata/bzz-spark" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-bigdata/bzz-storm" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-bigdata/bzz-zookeeper" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-caches" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-caches/bzz-redis" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-common" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-config" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-file" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-generator" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-jms" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-pay" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-rbac" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-rbac/bzz-rbac-client" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-rbac/bzz-rbac-server" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-security" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-service-centre" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-service-zookeeper" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-share-resouces" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bzz-wechat" charset="UTF-8" />
+  <component name="Encoding">
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

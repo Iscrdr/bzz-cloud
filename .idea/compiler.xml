@@ -3,67 +3,6 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="bzz-api" />
-        <module name="bzz-auth" />
-        <module name="bzz-batch" />
-        <module name="bzz-common" />
-        <module name="bzz-config" />
-        <module name="bzz-core" />
-        <module name="bzz-file" />
-        <module name="bzz-generator" />
-        <module name="bzz-hdfs" />
-        <module name="bzz-jms" />
-        <module name="bzz-mapreduce" />
-        <module name="bzz-pay" />
-        <module name="bzz-rbac-client" />
-        <module name="bzz-rbac-server" />
-        <module name="bzz-redis" />
-        <module name="bzz-scala" />
-        <module name="bzz-security" />
-        <module name="bzz-service-zookeeper" />
-        <module name="bzz-share-resouces" />
-        <module name="bzz-spark" />
-        <module name="bzz-storm" />
-        <module name="bzz-wechat" />
-        <module name="bzz-zookeeper" />
-        <module name="star-cms" />
-        <module name="star-rbac-server" />
-        <module name="star-service-centre" />
-        <module name="star-wechat" />
-      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8">
-      <module name="bzz-api" target="1.5" />
-      <module name="bzz-auth" target="1.5" />
-      <module name="bzz-batch" target="1.8" />
-      <module name="bzz-bigdata" target="1.5" />
-      <module name="bzz-caches" target="1.5" />
-      <module name="bzz-cloud" target="1.5" />
-      <module name="bzz-common" target="1.8" />
-      <module name="bzz-config" target="1.5" />
-      <module name="bzz-core" target="1.5" />
-      <module name="bzz-file" target="1.5" />
-      <module name="bzz-generator" target="1.5" />
-      <module name="bzz-hdfs" target="1.8" />
-      <module name="bzz-jms" target="1.5" />
-      <module name="bzz-mapreduce" target="1.8" />
-      <module name="bzz-pay" target="1.5" />
-      <module name="bzz-rbac" target="1.5" />
-      <module name="bzz-rbac-client" target="1.5" />
-      <module name="bzz-rbac-server" target="1.5" />
-      <module name="bzz-redis" target="1.7" />
-      <module name="bzz-scala" target="1.5" />
-      <module name="bzz-security" target="1.5" />
-      <module name="bzz-service-zookeeper" target="1.5" />
-      <module name="bzz-share-resouces" target="1.5" />
-      <module name="bzz-spark" target="1.8" />
-      <module name="bzz-storm" target="1.5" />
-      <module name="bzz-wechat" target="1.5" />
-      <module name="bzz-zookeeper" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
