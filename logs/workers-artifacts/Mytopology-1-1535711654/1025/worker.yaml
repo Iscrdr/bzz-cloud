@@ -1,0 +1,4 @@
+worker-id: 7ebfc264-a04d-4c5b-89f9-f49a290b0c51
+logs.users: []
+logs.groups: []
+topology.submitter.user: clouder

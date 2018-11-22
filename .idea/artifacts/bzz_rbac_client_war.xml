@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bzz-rbac-client:war">
+    <output-path>$PROJECT_DIR$/bzz-rbac/bzz-rbac-client/target</output-path>
+    <root id="archive" name="bzz-rbac-client-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="bzz-rbac-client:war exploded" />
+    </root>
+  </artifact>
+</component>

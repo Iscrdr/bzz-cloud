@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bzz-api/bzz-api.iml" filepath="$PROJECT_DIR$/bzz-api/bzz-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-auth/bzz-auth.iml" filepath="$PROJECT_DIR$/bzz-auth/bzz-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-batch/bzz-batch.iml" filepath="$PROJECT_DIR$/bzz-batch/bzz-batch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-bigdata/bzz-bigdata.iml" filepath="$PROJECT_DIR$/bzz-bigdata/bzz-bigdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-caches/bzz-caches.iml" filepath="$PROJECT_DIR$/bzz-caches/bzz-caches.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-cloud.iml" filepath="$PROJECT_DIR$/bzz-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-common/bzz-common.iml" filepath="$PROJECT_DIR$/bzz-common/bzz-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-config/bzz-config.iml" filepath="$PROJECT_DIR$/bzz-config/bzz-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-core/bzz-core.iml" filepath="$PROJECT_DIR$/bzz-core/bzz-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-file/bzz-file.iml" filepath="$PROJECT_DIR$/bzz-file/bzz-file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-generator/bzz-generator.iml" filepath="$PROJECT_DIR$/bzz-generator/bzz-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-bigdata/bzz-hdfs/bzz-hdfs.iml" filepath="$PROJECT_DIR$/bzz-bigdata/bzz-hdfs/bzz-hdfs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-jms/bzz-jms.iml" filepath="$PROJECT_DIR$/bzz-jms/bzz-jms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-bigdata/bzz-mapreduce/bzz-mapreduce.iml" filepath="$PROJECT_DIR$/bzz-bigdata/bzz-mapreduce/bzz-mapreduce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-pay/bzz-pay.iml" filepath="$PROJECT_DIR$/bzz-pay/bzz-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-rbac/bzz-rbac.iml" filepath="$PROJECT_DIR$/bzz-rbac/bzz-rbac.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-rbac/bzz-rbac-client/bzz-rbac-client.iml" filepath="$PROJECT_DIR$/bzz-rbac/bzz-rbac-client/bzz-rbac-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-rbac/bzz-rbac-server/bzz-rbac-server.iml" filepath="$PROJECT_DIR$/bzz-rbac/bzz-rbac-server/bzz-rbac-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-caches/bzz-redis/bzz-redis.iml" filepath="$PROJECT_DIR$/bzz-caches/bzz-redis/bzz-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-bigdata/bzz-scala/bzz-scala.iml" filepath="$PROJECT_DIR$/bzz-bigdata/bzz-scala/bzz-scala.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-security/bzz-security.iml" filepath="$PROJECT_DIR$/bzz-security/bzz-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-service-zookeeper/bzz-service-zookeeper.iml" filepath="$PROJECT_DIR$/bzz-service-zookeeper/bzz-service-zookeeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-share-resouces/bzz-share-resouces.iml" filepath="$PROJECT_DIR$/bzz-share-resouces/bzz-share-resouces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-bigdata/bzz-spark/bzz-spark.iml" filepath="$PROJECT_DIR$/bzz-bigdata/bzz-spark/bzz-spark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-bigdata/bzz-storm/bzz-storm.iml" filepath="$PROJECT_DIR$/bzz-bigdata/bzz-storm/bzz-storm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-wechat/bzz-wechat.iml" filepath="$PROJECT_DIR$/bzz-wechat/bzz-wechat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bzz-bigdata/bzz-zookeeper/bzz-zookeeper.iml" filepath="$PROJECT_DIR$/bzz-bigdata/bzz-zookeeper/bzz-zookeeper.iml" />
+    </modules>
+  </component>
+</project>
