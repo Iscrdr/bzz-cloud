@@ -47,7 +47,6 @@
       <module>bzz-wechat</module>
       <!--bzz.支付系统-->
       <module>bzz-pay</module>
-
       <module>bzz-batch</module>
 
   </modules>
