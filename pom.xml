@@ -10,44 +10,45 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-    <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
+    <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+    <spring-boot.version>2.1.0.M4</spring-boot.version>
   </properties>
   <modules>
-	<!--bzz.务注册中心-eureka-->
-	<module>bzz-service-centre</module>
-    <!--bzz.务注册中心-zookeeper-->
-    <module>bzz-service-zookeeper</module>
-    <!--bzz.共jar包-->
-    <module>bzz-common</module>
-    <!--bzz.共配置-->
-    <module>bzz-config</module>
-	<!--bzz.mybatis mapper配置-->
-	<module>bzz-share-resouces</module>
-    <!--bzz-API-->
-    <module>bzz-api</module>
-    <!--bzz.心类库-->
-    <module>bzz-core</module>
-    <!--bzz.限系统RBAC-->
-    <module>bzz-rbac</module>
-    <!--bzz.证系统-->
-    <module>bzz-auth</module>
-    <!--bzz.全系统-->
-    <module>bzz-security</module>
-    <!--bzz.web文件服务器-->
-    <module>bzz-file</module>
-	<!--bzz.代码生成器-->
-	<module>bzz-generator</module>
-    <!--bzz.消息中间件-->
-    <module>bzz-jms</module>
-    <!--bzz.大数据系统-->
-    <module>bzz-bigdata</module>
 
-    <!--bzz.微信API-->
-    <module>bzz-wechat</module>
-    <!--bzz.支付系统-->
-    <module>bzz-pay</module>
-    <module>bzz-batch</module>
+      <!--bzz.务注册中心-zookeeper-->
+      <module>bzz-service-zookeeper</module>
+      <module>bzz-caches</module>
+      <!--bzz.共jar包-->
+      <module>bzz-common</module>
+      <!--bzz.共配置-->
+      <module>bzz-config</module>
+      <!--bzz.mybatis mapper配置-->
+      <module>bzz-share-resouces</module>
+      <!--bzz-API-->
+      <module>bzz-api</module>
+      <!--bzz.心类库-->
+      <module>bzz-core</module>
+      <!--bzz.限系统RBAC-->
+      <module>bzz-rbac</module>
+      <!--bzz.证系统-->
+      <module>bzz-auth</module>
+      <!--bzz.全系统-->
+      <module>bzz-security</module>
+      <!--bzz.web文件服务器-->
+      <module>bzz-file</module>
+      <!--bzz.代码生成器-->
+      <module>bzz-generator</module>
+      <!--bzz.消息中间件-->
+      <module>bzz-jms</module>
+      <!--bzz.大数据系统-->
+      <module>bzz-bigdata</module>
+
+      <!--bzz.微信API-->
+      <module>bzz-wechat</module>
+      <!--bzz.支付系统-->
+      <module>bzz-pay</module>
+      <module>bzz-batch</module>
+
   </modules>
   <repositories>
     <repository>

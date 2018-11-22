@@ -5,8 +5,8 @@
     When this property is set to true, the configuration file will be reloaded if it changes, and the default value is true。
     The scanPeriod setting monitors whether the configuration file has a modified time interval, and if no time unit is given, the default unit is milliseconds.This property takes effect when the scan is true.The default time interval is 1 minute。
     Debug when this property is set to true, the logback internal log information is printed to check the logback runtime in real time.The default value is false。 -->
-<configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <!--Dynamic log level-->
+<configuration  debug="false">
+
     <jmxConfigurator />
     <!-- Log output location -->
      <property name="log_dir" value="C:/test" />
@@ -15,13 +15,16 @@
     <!--<property name="log_dir" value="/home/hadmin/data/logs/src" />-->
     <!-- The maximum log history is 30 days-->
     <property name="maxHistory" value="30" />
-    <logger name="com.atomikos" level="ERROR" />
+    <!--<logger name="com.atomikos.icatch.provider.imp" level="ERROR" />-->
+   <!-- <logger name="o.s.jmx.export.annotation.AnnotationMBeanExporter" level="OFF" />-->
     <logger name="org.mybatis.spring.SqlSessionUtils" level="ERROR" />
 
+  <!--  <logger name="org.apache.catalina.core.AprLifecycleListener" level="ERROR"/>
+
+    <logger name="org.springframework.test.context.support" level="ERROR"/>
     <logger name="org.apache.catalina.core.AprLifecycleListener" level="OFF"/>
-    <logger name="org.springframework.test.context.support" level="OFF"/>
-    <logger name="org.apache.catalina.core.AprLifecycleListener" level="OFF"/>
-    <logger name="org.hibernate" level="OFF" />
+    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="OFF"/>
+    <logger name="org.hibernate" level="OFF" />-->
 
     <!-- ConsoleAppender  console output log -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -134,12 +137,42 @@
         </encoder>
     </appender>
 
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                        <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+        <!-- 按照每天生成日志文件 -->
+       
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                        <!--日志文件输出的文件名-->
+            <FileNamePattern>${log_dir}/edusystem.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+                        <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                        <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+                <!--日志文件最大的大小-->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+
+    <logger name="com.bzz.cloud" level="DEBUG"></logger>
+
     <!-- root Logging level DEBUG -->
-    <root>
+    <root level="INFO">
         <!-- Print the logs for the above debug -->
-        <level value="debug" />
+       <!-- <level value="debug" />-->
         <!-- console print -->
-        <appender-ref ref="console" />
+       <!-- <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />-->
         <!-- log file output -->
         <appender-ref ref="ERROR" />
         <appender-ref ref="INFO" />
@@ -147,4 +180,7 @@
         <appender-ref ref="DEBUG" />
         <appender-ref ref="TRACE" />
     </root>
+
+
+
 </configuration>

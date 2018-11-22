@@ -393,8 +393,8 @@ public class ExampleEventUserModel {
 	
 	public static void main(String[] args) throws Exception {
 		ExampleEventUserModel example = new ExampleEventUserModel();
-		String str = "中粮Call201401-03销售明细";
-		String filename = "D:\\app\\"+str+".xlsx ";
+		String str = "2018-08";
+		String filename = "D:\\test\\"+str+".xlsx ";
 		System.out.println("-- 程序开始 --");
 		long time_1 = System.currentTimeMillis();
 		try{

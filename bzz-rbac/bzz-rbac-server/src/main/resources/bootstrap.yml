@@ -3,7 +3,7 @@ spring:
     zookeeper:
       config:
         enabled: true
-      connect-string: 192.168.132.101:2181,192.168.132.102:2181,192.168.132.103:2181
+      connect-string: 192.168.132.153:2181,192.168.132.154:2181,192.168.132.155:2181
       discovery:
         root: bzz-server
         register: true
@@ -11,3 +11,4 @@ spring:
 management:
   security:
     enabled: false
+

@@ -50,8 +50,8 @@ public class ExcelReaderUtil {
 		System.out.println("解析文件销售日报.XLSX完成，耗时(毫秒)："+(end-start)/1000);
 		
 		
-		Thread t = new Thread(new ClientThread(lists));
-		t.start();
+		//Thread t = new Thread(new ClientThread(lists,0));
+		//t.start();
 		Thread.sleep(100);
 		long engTime = System.currentTimeMillis();
 		System.out.println("耗时："+(engTime-start)/1000+"秒(毫秒："+(engTime-start)+")");

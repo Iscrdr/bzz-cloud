@@ -45,7 +45,7 @@ public class App2 {
 			e.printStackTrace();
 		}finally {
 			if(null!=conn){
-				DBUtil.closeConnection();
+				DBUtil.closeConnection(conn);
 			}
 			
 		}

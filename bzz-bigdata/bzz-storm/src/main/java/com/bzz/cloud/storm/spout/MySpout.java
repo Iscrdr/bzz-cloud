@@ -32,6 +32,13 @@ public class MySpout implements IRichSpout {
 	}
 	
 	public void close() {
+		try {
+			br.close();
+			irs.close();
+			fis.close();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	
 	}
 	
@@ -47,7 +54,7 @@ public class MySpout implements IRichSpout {
 		try {
 			while ((str =this.br.readLine()) != null){
 				collector.emit(new Values(str));
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 		}catch (Exception e){
 		
@@ -56,11 +63,11 @@ public class MySpout implements IRichSpout {
 	}
 	
 	public void ack(Object o) {
-	
+		System.out.println("spout ack: "+ o.toString());
 	}
 	
 	public void fail(Object o) {
-	
+		System.out.println("spout fail: "+ o.toString());
 	}
 	
 	public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {

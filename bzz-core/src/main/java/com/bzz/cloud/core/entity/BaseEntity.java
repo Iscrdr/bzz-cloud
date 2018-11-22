@@ -1,5 +1,6 @@
 package com.bzz.cloud.core.entity;
 
+import com.bzz.common.page.Page;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
@@ -26,12 +27,9 @@ public abstract class BaseEntity<T> implements Serializable {
 	/**
 	 * 当前实体分页对象
 	 */
-	//protected Page<T> page;
+	protected Page<T> page;
 	
-	/**
-	 * 自定义SQL（SQL标识，SQL内容）
-	 */
-	protected Map<String, String> sqlMap;
+	
 	
 	/**
 	 * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
@@ -58,7 +56,6 @@ public abstract class BaseEntity<T> implements Serializable {
 	
 	
 	public Object getCurrentUser() {
-		
 		return currentUser;
 	}
 	
@@ -66,7 +63,7 @@ public abstract class BaseEntity<T> implements Serializable {
 		this.currentUser = currentUser;
 	}
 	
-/*	public Page<T> getPage() {
+	public Page<T> getPage() {
 		if (page == null){
 			page = new Page<T>();
 		}
@@ -76,18 +73,9 @@ public abstract class BaseEntity<T> implements Serializable {
 	public Page<T> setPage(Page<T> page) {
 		this.page = page;
 		return page;
-	}*/
-	
-	public Map<String, String> getSqlMap() {
-		if (sqlMap == null){
-			sqlMap = new HashMap<>();
-		}
-		return sqlMap;
 	}
 	
-	public void setSqlMap(Map<String, String> sqlMap) {
-		this.sqlMap = sqlMap;
-	}
+	
 	
 	/**
 	 * 插入之前执行方法，子类实现
@@ -153,7 +141,7 @@ public abstract class BaseEntity<T> implements Serializable {
 	/**
 	 * 删除标记（0：正常；1：删除；2：审核；）
 	 */
-	public static final String DEL_FLAG_NORMAL = "0";
-	public static final String DEL_FLAG_DELETE = "1";
-	public static final String DEL_FLAG_AUDIT = "2";
+	public static final int DEL_FLAG_NORMAL = 0;
+	public static final int DEL_FLAG_DELETE = 1;
+	public static final int DEL_FLAG_EDIT = 2;
 }

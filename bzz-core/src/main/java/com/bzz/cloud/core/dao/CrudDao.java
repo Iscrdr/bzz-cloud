@@ -1,5 +1,7 @@
 package com.bzz.cloud.core.dao;
 
+import com.bzz.common.page.Page;
+
 import java.util.List;
 
 public  interface CrudDao<T> extends BaseDao{
@@ -18,12 +20,17 @@ public  interface CrudDao<T> extends BaseDao{
 	public T get(T entity);
 	
 	/**
-	 * 查询数据列表，如果需要分页，请设置分页对象，如：entity.setPage(new Page<T>());
+	 * 查询数据列表
 	 * @param entity
 	 * @return
 	 */
 	public List<T> findList(T entity);
 	
+	
+	/**
+	 * 分页查询
+	 */
+	public Page<T> findPage(T entity,int pageNo,int pageSzie);
 	/**
 	 * 查询所有数据列表
 	 * @param entity
@@ -31,6 +38,12 @@ public  interface CrudDao<T> extends BaseDao{
 	 */
 	public List<T> findAllList(T entity);
 	
+	/**
+	 * 查询总条数
+	 * @param entity
+	 * @return
+	 */
+	public Integer findCount(T entity);
 	/**
 	 * 插入数据
 	 * @param entity

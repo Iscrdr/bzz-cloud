@@ -3,6 +3,17 @@ spring:
     name: BzzAuth
     server:
       port: 8080
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/bzz-cloud-test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+
+
+
+
 
 
 

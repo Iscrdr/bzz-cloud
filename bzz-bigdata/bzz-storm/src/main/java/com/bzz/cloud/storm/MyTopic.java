@@ -17,7 +17,7 @@ public class MyTopic {
 	public static void main(String[] args)  {
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("spout",new MySpout(),1);
-		builder.setBolt("bolt",new MyBolt(),1).shuffleGrouping("spout");
+		builder.setBolt("bolt",new MyBolt(),2).setNumTasks(2).shuffleGrouping("spout");
 		
 		Map conf = new HashMap();
 		conf.put(Config.TOPOLOGY_WORKERS,4);

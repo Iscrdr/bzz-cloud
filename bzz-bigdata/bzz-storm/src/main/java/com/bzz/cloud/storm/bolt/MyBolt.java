@@ -18,11 +18,11 @@ public class MyBolt implements IRichBolt {
 	
 	public void execute(Tuple tuple) {
 		try{
-			Thread.sleep(3000);
+			//Thread.sleep(3000);
 			log = tuple.getStringByField("log");
 			if(null != log){
 				num ++;
-				System.err.println("line:"+ num+",line:"+log);
+				System.err.println(Thread.currentThread().getName()+",line:"+ num+",line:"+log);
 			}
 			outputCollector.ack(tuple);
 		}catch (Exception e){

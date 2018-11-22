@@ -10,7 +10,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bzz-bigdata</artifactId>
-    <groupId>com.bzz.cloud</groupId>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>2.7.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>2.7.5</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<groupId>com.bzz.cloud</groupId>
     <version>1.0-SNAPSHOT</version>
     <name>bzz-bigdata</name>
     <packaging>pom</packaging>
@@ -21,5 +35,8 @@
         <module>bzz-storm</module>
         <module>bzz-scala</module>
         <module>bzz-spark</module>
+	    <module>bzz-hdfs</module>
+	    <module>bzz-mapreduce</module>
+	    <module>bzz-zookeeper</module>
     </modules>
 </project>

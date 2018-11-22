@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.bzz.cloud.core.dao.CrudDao;
 import com.bzz.cloud.core.entity.DataEntity;
-import com.bzz.common.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 

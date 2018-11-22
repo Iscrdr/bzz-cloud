@@ -95,6 +95,7 @@ public class ActionOperation {
 	}
 	private static void saveASText(){
 		SparkConf conf = new SparkConf().setAppName("ActionOperation");
+		conf.set("spark.testing.memory", "2147480000");
 		JavaSparkContext jsc = new JavaSparkContext(conf);
 		
 		List<Integer> numberList = Arrays.asList(1,2,3,4,5,6,7,8,9,10);

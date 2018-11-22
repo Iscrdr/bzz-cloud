@@ -216,7 +216,7 @@ public class ClientThread2 implements Runnable {
 			
 		}finally {
 			if(null!=conn){
-				DBUtil.closeConnection();
+				DBUtil.closeConnection(conn);
 			}
 			try {
 				fw.close();

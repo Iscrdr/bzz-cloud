@@ -2,6 +2,8 @@ package com.bzz.cloud.framework.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.alibaba.druid.wall.WallConfig;
+import com.alibaba.druid.wall.WallFilter;
 import com.bzz.cloud.framework.dynamicdatasource.DynamicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -68,13 +70,12 @@ public class BzzCloudDbConfig{
         ds.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
         ds.setUniqueResourceName("dataSourceA");
         Properties prop = build(env, "spring.datasource.dataSourceA.druid.");
-       // prop.put("pinGlobalTxToPhysicalConnection", true);
+        //prop.put("pinGlobalTxToPhysicalConnection", true);
         ds.setXaProperties(prop);
-//        DruidXADataSource xaDataSource = new DruidXADataSource();
-//        xaDataSource.configFromPropety(prop);
-//        xaDataSource.configFromPropety(prop);
-        //ds.setXaDataSource(xaDataSource);
-        //ds.setPoolSize(5);
+       /* DruidXADataSource xaDataSource = new DruidXADataSource();
+        xaDataSource.configFromPropety(prop);
+        ds.setXaDataSource(xaDataSource);*/
+        ds.setPoolSize(5);
         return ds;
     }
     @Autowired
@@ -82,13 +83,14 @@ public class BzzCloudDbConfig{
     public AtomikosDataSourceBean dataSourceB(Environment env) {
         AtomikosDataSourceBean ds = new AtomikosDataSourceBean();
         ds.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
+    
         ds.setUniqueResourceName("dataSourceB");
         Properties prop = build(env, "spring.datasource.dataSourceB.druid.");
         ds.setXaProperties(prop);
-        //ds.setPoolSize(5);
-//        DruidXADataSource xaDataSource = new DruidXADataSource();
-//        xaDataSource.configFromPropety(prop);
-//        ds.setXaDataSource(xaDataSource);
+        ds.setPoolSize(5);
+       /* DruidXADataSource xaDataSource = new DruidXADataSource();
+        xaDataSource.configFromPropety(prop);
+        ds.setXaDataSource(xaDataSource);*/
         return ds;
     }
    
@@ -140,7 +142,21 @@ public class BzzCloudDbConfig{
         filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
     }
+    @Bean
+    public WallFilter wallFilter(){
+        WallFilter wallFilter = new WallFilter();
+        wallFilter.setConfig(wallConfig());
+        return wallFilter;
+    }
     
+    @Bean
+    public WallConfig wallConfig(){
+        WallConfig wallConfig = new WallConfig();
+        wallConfig.setMultiStatementAllow(true);//允许一次执行多条语句
+        wallConfig.setNoneBaseStatementAllow(true);//允许一次执行多条语句
+        return wallConfig;
+    }
+
     
    
 }

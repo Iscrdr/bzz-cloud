@@ -42,10 +42,29 @@
 		SELECT
 		<include refid="userColumns"/><!-- ,
 			ro.office_id AS "roleList.officeList.id" -->
-		FROM sys_user a
+		FROM sys_user a WHERE a.id = #{id}
 		<!--<include refid="userJoins"/>--><!--
 		LEFT JOIN sys_role_office ro ON ro.role_id = r.id -->
-		WHERE a.id = #{id}
+		<!--<where>
+			<if test="id != null and id != '' ">
+			  	OR a.id = #{id}
+			</if>
+			<if test="workNum != null and workNum != '' ">
+				OR a.work_num = #{workNum}
+			</if>
+			<if test="name != null and name != '' ">
+				OR a.name LIKE CONCAT('%', #{name}, '%')
+			</if>
+			<if test="email != null and email != '' ">
+				OR a.email = #{email}
+			</if>
+			<if test="phone != null and phone != '' ">
+				OR a.phone = #{phone}
+			</if>
+			<if test="loginFlag != null and loginFlag != '' ">
+				OR a.login_flag = #{loginFlag}
+			</if>
+		</where>-->
 	</select>
 
 	<!-- 根据登录名查询用户 -->
@@ -125,8 +144,8 @@
 		<include refid="userColumns"/>
 		FROM sys_user a
 		<!--<include refid="userJoins"/>-->
-		WHERE a.del_flag = #{DEL_FLAG_NORMAL}
-		/*ORDER BY c.code, o.code, a.name*/
+		WHERE a.del_flag = 0 order by a.id limit 1
+		<!--ORDER BY c.code, o.code, a.name-->
 	</select>
 
 	<!-- 查询全部用户数目 -->

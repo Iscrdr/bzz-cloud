@@ -1,15 +1,23 @@
 package com.bzz.cloud.rbac.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.bzz.cloud.core.entity.DataEntity;
 import lombok.*;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysUser extends DataEntity {
+@TableName("sys_user")
+public class SysUser implements Serializable {
 	
+	private static final long serialVersionUID = -6539941424995082924L;
+	@TableId
+	private String id;// id
 	private String loginName;// 登录名
 	private String password;// 密码
 	private String workNum;	// 工号

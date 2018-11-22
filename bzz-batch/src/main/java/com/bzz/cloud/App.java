@@ -10,7 +10,9 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -18,9 +20,14 @@ import java.util.UUID;
  *
  */
 public class App {
-    private static String url = "jdbc:mysql://127.0.0.1:3306/rcsjfx?useUnicode=true&characterEncoding=utf-8&rewriteBatchedStatements=true&useSSL=false";
+    //private static String url = "jdbc:mysql://192.168.132.150:3306/rcsjfx?useUnicode=true&characterEncoding=utf-8&rewriteBatchedStatements=true&useSSL=false";
+
+    private static String url = "jdbc:mysql://118.89.237.130:3306/rcsjfx?useUnicode=true&characterEncoding=utf-8&rewriteBatchedStatements=true&useSSL=false";
+
     private static String user = "root";
-    private static String password = "root";
+    //private static String password = "root";
+    private static String password = "kaqkwgisshwqhs9wh";
+
     private static String sql = "INSERT INTO c_cust_sale_2018 (ID, gongchang, daqu, chengshi, yewuyuan\n" +
 		    "\t, cust_no, cust_name, dapinleimiaoshu, yijipinleimiaoshu, erjipinleimiaoshu\n" +
 		    "\t, sanjipinleimiaoshu, chanpinxianmiaoshu, wuliaobianma, wuliaomiaoshu, xiang\n" +
@@ -29,8 +36,8 @@ public class App {
 		    "\t, danjuriqi, kucundidian, caigoubianhao, create_by, create_date\n" +
 		    "\t, update_by, update_date, remarks, del_flag)\n" +
 		    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    public static void main(String[] args) {
-        File file = new File("D://app//");
+    public static void main(String[] args) throws Exception {
+        File file = new File("D:\\test\\");
     
         if (file.isDirectory()) {
             File[] files = file.listFiles(new FilenameFilter() {
@@ -38,12 +45,17 @@ public class App {
 	                return name.endsWith("xlsx");
                 }
             });
+
+            ExampleEventUserModel example = new ExampleEventUserModel();
+            // String fileName = "d://app//中粮Call201401-03销售明细.xlsx";
+            List<List<String>> list = null;
             for(int i=0;i<files.length;i++){
                 String path = files[i].getPath();
-                insertBatch(path);
+                list = example.processOneSheet(path);
             }
-            
+            insertBatch(list);
         }
+
     }
     
     public static Double  getDouble(String str){
@@ -51,6 +63,9 @@ public class App {
         if(StringUtils.isNotBlank(str)){
             if(str.contains(",")){
                 str = str.replaceAll(",","");
+            }
+            if(str.contains("*")){
+                str = str.replaceAll("\\*","");
             }
             BigDecimal db = new BigDecimal(str);
             strDouble = db.setScale(8, BigDecimal.ROUND_HALF_UP).doubleValue();
@@ -78,7 +93,7 @@ public class App {
         return date;
     }
     
-    public static void insertBatch(String fileName){
+    public static void insertBatch(List<List<String>> list){
         Connection conn = null;
         PreparedStatement pstm =null;
         ResultSet rt = null;
@@ -87,12 +102,21 @@ public class App {
             conn = DriverManager.getConnection(url, user, password);
             pstm = conn.prepareStatement(sql);
             conn.setAutoCommit(false);
-            Long startTime = System.currentTimeMillis();
-            ExampleEventUserModel example = new ExampleEventUserModel();
-           // String fileName = "d://app//中粮Call201401-03销售明细.xlsx";
-            List<List<String>> list = example.processOneSheet(fileName);
-            System.out.println("数据导入开始，文件名："+fileName);
+
+            long startTime1 = System.currentTimeMillis();//每次提交事务的开始时间
+            long startTime2 = System.currentTimeMillis();//所有事务的开始时间
+            //SnowflakeIdWorker idWorker = new SnowflakeIdWorker(1, 0);
+            SnowflakeIdFactory idWorker = new SnowflakeIdFactory(1, 2);
+            Map<Long,Long> map = new HashMap<>();
             for(int i=0;i<list.size();i++){
+                long id = idWorker.nextId();
+                try {
+                    map.put(id,id);
+                }catch (Exception e){
+                    System.out.printf("重复的id："+id);
+                    e.printStackTrace();
+                }
+
                 List<String> rowList = list.get(i);
                 if(null==rowList || rowList.size()<=0){
                     System.out.println("第"+i+"行，是空行");
@@ -103,7 +127,7 @@ public class App {
                     if(StringUtils.isNotBlank(rowList.get(5)) && "客户名称".equals(rowList.get(5))){
                         System.out.println("第"+i+"行，数据错误,此行数据是表头"+rowList.toString());
                     }else{
-                        pstm.setString(1, UUID.randomUUID().toString().replaceAll("-", ""));
+                        pstm.setString(1,id + "");
                         pstm.setString(2,rowList.get(0));
                         pstm.setString(3,rowList.get(1));
                         pstm.setString(4,rowList.get(2));
@@ -182,20 +206,23 @@ public class App {
                         pstm.setString(34,"0");
                     
                         pstm.addBatch();
-                    
-                        if ((i % 10000) == 0){
+                        if ((i % 10000) == 0) {
                             pstm.executeBatch();
                             conn.commit();
-                            System.out.println("批量执行完毕===>" + i + "条");
+                            pstm.clearBatch();
+                            long endTime = System.currentTimeMillis();
+                            System.out.println("-------> 第" + i + "条导入数据库,耗时：" + (endTime - startTime1));
                         }
+                        startTime1 = System.currentTimeMillis();
                     }
                 }
             }
-            System.out.println("数据导入结束，文件名："+fileName);
             pstm.executeBatch();
             conn.commit();
-            Long endTime = System.currentTimeMillis();
-            System.out.println("OK,用时：" + (endTime - startTime));
+            pstm.clearBatch();
+            long endTime2 = System.currentTimeMillis();
+            System.out.println("=======>>导入数据库完毕，共有" + list.size() + "条导入到了数据库,共耗时："+(endTime2-startTime2));
+
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
